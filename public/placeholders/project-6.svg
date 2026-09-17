@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="g-project-6" x1="96.98463103929541%" y1="32.898992833716555%" x2="3.015368960704585%" y2="67.10100716628344%">
+      <stop offset="0%" stop-color="#E2A03F" />
+      <stop offset="100%" stop-color="#0E0B0A" />
+    </linearGradient>
+    <filter id="grain-project-6">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise" />
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.035 0" />
+    </filter>
+  </defs>
+  <rect width="800" height="1000" fill="url(#g-project-6)" />
+  <rect width="800" height="1000" filter="url(#grain-project-6)" />
+</svg>

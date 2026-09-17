@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="g-hero-2" x1="14.644660940672622%" y1="14.64466094067263%" x2="85.35533905932738%" y2="85.35533905932738%">
+      <stop offset="0%" stop-color="#1F4D3D" />
+      <stop offset="100%" stop-color="#0E0B0A" />
+    </linearGradient>
+    <filter id="grain-hero-2">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise" />
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.035 0" />
+    </filter>
+  </defs>
+  <rect width="800" height="1000" fill="url(#g-hero-2)" />
+  <rect width="800" height="1000" filter="url(#grain-hero-2)" />
+</svg>

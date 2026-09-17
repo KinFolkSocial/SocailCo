@@ -16,7 +16,7 @@ export function RevealImage({ children, className }: { children: ReactNode; clas
   return (
     <div className={cn("overflow-hidden", className)}>
       <motion.div
-        className="size-full"
+        className="relative size-full"
         initial={reducedMotion ? false : { scale: 1.08, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
         viewport={{ once: true, amount: 0.4 }}

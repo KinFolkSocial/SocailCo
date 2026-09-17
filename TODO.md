@@ -35,12 +35,30 @@ must be replaced with verified content before this site goes live.
   confirms client-side only; no email service is wired yet (needs the same booking
   destination decision as the contact form).
 
+## Placeholder imagery (Phase 4 — home page)
+
+- **All `/public/placeholders/*.svg` files** — abstract brand-colored gradients generated
+  programmatically, not real photography. Every one needs replacing with real, credited
+  images (see Photography above) before launch: `hero-1`/`hero-2` (Hero), `founder-portrait`
+  (Intro statement), `project-1`–`project-6` (Featured work cards), `service-header-1`/
+  `service-header-2` (Services heading), `journal-1`–`journal-3` (Journal teaser).
+- Real photography assets should use `next/image` with a static import so `placeholder="blur"`
+  generates automatically — the flat placeholder SVGs skip this since it adds no value for an
+  instantly-rendered local gradient with zero real network latency.
+- **Logo scroller** — `components/sections/LogoScroller.tsx` — six invented venue/press/brand
+  names (e.g. "The Grand Hall"), not real partners.
+
 ## Fabricated-by-design placeholders (never to be shipped as real)
 
-- Testimonials — obviously fake, e.g. `"Client Name — Event Type, 2025"`.
-- Case study client names, guest counts, and result lines.
-- "Numbers" / stats band (events produced, guests hosted, cities, years).
-- Trust-strip logos (venues, brands, publications).
+- Testimonials — obviously fake, e.g. `"Client Name — Event Type, 2025"` — see
+  `content/testimonials.ts`.
+- Case study client names, guest counts, and result lines — see `content/projects.ts`.
+- "Numbers" / stats band (events produced, guests hosted, cities, years) — see
+  `components/sections/StatBand.tsx`.
+- Trust-strip logos (venues, brands, publications) — see `components/sections/LogoScroller.tsx`.
+- Journal teaser posts — invented titles/excerpts in `components/sections/JournalTeaser.tsx`,
+  pending real MDX content in a later phase.
+- Services starting-investment figures — see `content/services.ts`.
 - Press/awards strip on `/about`.
 
 This section will grow as later build phases add content — each new placeholder gets
