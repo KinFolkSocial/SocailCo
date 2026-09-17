@@ -1,0 +1,69 @@
+"use server";
+
+import { headers } from "next/headers";
+import { InquirySchema } from "@/lib/inquiry";
+
+export type InquiryActionState =
+  | { status: "idle" }
+  | { status: "error"; message: string; fieldErrors?: Record<string, string[]> }
+  | { status: "success" };
+
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_MAX = 5;
+
+/**
+ * In-memory only — resets on every server restart and isn't shared across
+ * serverless instances. Fine for a single traditional server; a real
+ * deployment on Vercel/similar needs a shared store (Upstash Redis, etc).
+ * See TODO.md.
+ */
+const submissionLog = new Map<string, number[]>();
+
+function checkRateLimit(key: string): boolean {
+  const now = Date.now();
+  const recent = (submissionLog.get(key) ?? []).filter((timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS);
+
+  if (recent.length >= RATE_LIMIT_MAX) {
+    submissionLog.set(key, recent);
+    return false;
+  }
+
+  recent.push(now);
+  submissionLog.set(key, recent);
+  return true;
+}
+
+export async function submitInquiry(
+  _prevState: InquiryActionState,
+  formData: FormData,
+): Promise<InquiryActionState> {
+  const raw = Object.fromEntries(formData.entries());
+  const parsed = InquirySchema.safeParse(raw);
+
+  if (!parsed.success) {
+    return {
+      status: "error",
+      message: "Check the highlighted fields and try again.",
+      fieldErrors: parsed.error.flatten().fieldErrors as Record<string, string[]>,
+    };
+  }
+
+  if (parsed.data.company) {
+    // Honeypot tripped — pretend success, drop silently rather than tipping the bot off.
+    return { status: "success" };
+  }
+
+  const headerList = await headers();
+  const rateLimitKey = headerList.get("x-forwarded-for") ?? headerList.get("x-real-ip") ?? "anonymous";
+
+  if (!checkRateLimit(rateLimitKey)) {
+    return { status: "error", message: "Too many submissions — please try again in a minute." };
+  }
+
+  // TODO(see TODO.md): no booking destination is configured yet (email/CRM).
+  // This validates and confirms, but the inquiry isn't actually delivered
+  // anywhere real until a destination is chosen and wired in here.
+  console.log("New inquiry received:", parsed.data);
+
+  return { status: "success" };
+}

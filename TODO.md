@@ -17,8 +17,13 @@ must be replaced with verified content before this site goes live.
 ## Booking / inquiry destination
 
 - No form backend is wired yet (Resend / HubSpot / Calendly / plain email). The contact
-  form's server action currently needs a real destination — see `app/contact` when built
-  in Phase 7.
+  form's server action (`app/contact/actions.ts`) validates, honeypot-checks, and
+  rate-limits a submission, then only `console.log`s it — nothing is actually delivered
+  anywhere real yet. Same gap applies to `components/forms/NewsletterForm.tsx`.
+- **Rate limiting is in-memory only** (`app/contact/actions.ts`) — resets on every server
+  restart and isn't shared across serverless instances. Fine for a single traditional
+  server; a real deployment on Vercel/similar needs a shared store (Upstash Redis or
+  similar) before this is a meaningful protection.
 
 ## Photography
 
@@ -80,10 +85,19 @@ must be replaced with verified content before this site goes live.
 - "Numbers" / stats band (events produced, guests hosted, cities, years) — see
   `components/sections/StatBand.tsx`.
 - Trust-strip logos (venues, brands, publications) — see `components/sections/LogoScroller.tsx`.
-- Journal teaser posts — invented titles/excerpts in `components/sections/JournalTeaser.tsx`,
-  pending real MDX content in a later phase.
+- Journal posts (`content/journal.ts`, `content/journal/*.mdx`) — three fully-written
+  placeholder posts with invented specifics. The advice in them is genuinely reasonable
+  but is not sourced from real events this studio has run.
 - Services starting-investment figures — see `content/services.ts`.
 - Press/awards strip on `/about`.
+
+## Placeholder content (Phase 7 — journal & contact)
+
+- **Journal cover images** reuse the same `journal-1`/`journal-2`/`journal-3` gradients
+  already used by the homepage teaser (see Phase 4 note above) — no per-post photography.
+- The inquiry form's "budget range" and "guest count" option bands
+  (`lib/inquiry.ts`) are reasonable guesses, not values the studio has confirmed it wants
+  to offer publicly.
 
 This section will grow as later build phases add content — each new placeholder gets
 logged here with its file and line as it's introduced.
