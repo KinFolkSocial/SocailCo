@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0e0b0a;
+  --color-bone: #f6f1e8;
+  --color-amber: #e2a03f;
+  --color-clay: #a8452e;
+  --color-jade: #1f4d3d;
+  --color-smoke: #6b635c;
+
+  --font-display: var(--font-display-family), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-body-family), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-kinfolk: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-micro: 200ms;
+  --duration-reveal: 800ms;
+}
+
+* {
+  border-color: var(--color-smoke);
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Visible, on-brand focus rings — never remove these, only restyle. */
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Respect prefers-reduced-motion everywhere: collapse to instant-on. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
