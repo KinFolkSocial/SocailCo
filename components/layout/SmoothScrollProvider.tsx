@@ -1,12 +1,27 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, useRef, type ReactNode } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 gsap.registerPlugin(ScrollTrigger);
+
+type LenisControls = {
+  stop: () => void;
+  start: () => void;
+};
+
+const LenisControlsContext = createContext<LenisControls>({
+  stop: () => {},
+  start: () => {},
+});
+
+/** Lets overlays (mega menu, modals) pause/resume smooth scroll while open. */
+export function useLenisControls() {
+  return useContext(LenisControlsContext);
+}
 
 /**
  * Syncs Lenis smooth scroll to GSAP's ticker so ScrollTrigger-driven
@@ -43,5 +58,13 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     };
   }, [reducedMotion]);
 
-  return <>{children}</>;
+  const controls = useMemo<LenisControls>(
+    () => ({
+      stop: () => lenisRef.current?.stop(),
+      start: () => lenisRef.current?.start(),
+    }),
+    [],
+  );
+
+  return <LenisControlsContext.Provider value={controls}>{children}</LenisControlsContext.Provider>;
 }

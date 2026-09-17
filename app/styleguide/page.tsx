@@ -82,8 +82,8 @@ function Section({
 
 export default function StyleguidePage() {
   return (
-    <main className="pb-32">
-      <header className="px-6 py-20 sm:px-10 lg:px-16">
+    <div className="pb-32">
+      <header className="px-6 pt-32 pb-20 sm:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <p className="font-body text-label uppercase text-amber">Internal — not indexed</p>
           <h1 className="mt-4 font-display text-display-1 uppercase leading-[0.85]">Styleguide</h1>
@@ -251,6 +251,6 @@ export default function StyleguidePage() {
       >
         <Marquee text="LET'S PLAN SOMETHING ✦" />
       </Section>
-    </main>
+    </div>
   );
 }

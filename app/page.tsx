@@ -2,7 +2,7 @@ import { brand } from "@/content/brand";
 
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center gap-4 px-6 py-24 text-center">
+    <section className="flex flex-1 flex-col items-center justify-center gap-4 px-6 py-24 text-center">
       <p className="font-body text-sm uppercase tracking-[0.3em] text-amber">
         {brand.markets.primary}
       </p>
@@ -12,6 +12,6 @@ export default function Home() {
       <p className="max-w-[42ch] font-body text-lg text-smoke">
         {brand.tagline}
       </p>
-    </main>
+    </section>
   );
 }

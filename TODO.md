@@ -27,6 +27,14 @@ must be replaced with verified content before this site goes live.
   and Unsplash's Black-creator collections. Every placeholder image's source and credit
   will be listed here as it's added, file by file.
 
+## Placeholder imagery (Phase 3)
+
+- **Mega menu preview panel** — `components/layout/MegaMenu.tsx` — gradient block standing
+  in for a real image per nav item (Work/Services/About/Journal/Contact previews).
+- **Newsletter form destination** — `components/forms/NewsletterForm.tsx` — validates and
+  confirms client-side only; no email service is wired yet (needs the same booking
+  destination decision as the contact form).
+
 ## Fabricated-by-design placeholders (never to be shipped as real)
 
 - Testimonials — obviously fake, e.g. `"Client Name — Event Type, 2025"`.

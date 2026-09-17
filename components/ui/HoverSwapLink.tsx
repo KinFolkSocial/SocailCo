@@ -10,14 +10,20 @@ export function HoverSwapLink({
   href,
   children,
   className,
+  target,
+  rel,
 }: {
   href: string;
   children: string;
   className?: string;
+  target?: string;
+  rel?: string;
 }) {
   return (
     <Link
       href={href}
+      target={target}
+      rel={rel}
       className={cn(
         "group relative inline-block overflow-hidden py-1 leading-none",
         className,
