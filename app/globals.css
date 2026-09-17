@@ -14,6 +14,41 @@
   --ease-kinfolk: cubic-bezier(0.65, 0, 0.35, 1);
   --duration-micro: 200ms;
   --duration-reveal: 800ms;
+
+  /* Fluid type scale — scale contrast is the main design lever (brief §3).
+     Hero hits ~12vw on desktop, stays legible at 360px. */
+  --text-display-1: clamp(2.75rem, 1rem + 9vw, 11rem);
+  --text-display-1--line-height: 0.85;
+  --text-display-1--letter-spacing: -0.03em;
+
+  --text-display-2: clamp(2.25rem, 1rem + 5vw, 5.5rem);
+  --text-display-2--line-height: 0.9;
+  --text-display-2--letter-spacing: -0.03em;
+
+  --text-display-3: clamp(1.75rem, 1rem + 2.5vw, 3rem);
+  --text-display-3--line-height: 0.95;
+  --text-display-3--letter-spacing: -0.02em;
+
+  --text-body-lg: clamp(1.125rem, 1rem + 0.3vw, 1.25rem);
+  --text-body-lg--line-height: 1.6;
+
+  --text-body: clamp(1.0625rem, 1rem + 0.15vw, 1.125rem);
+  --text-body--line-height: 1.6;
+
+  --text-label: 0.8125rem;
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.3em;
+
+  --animate-marquee: marquee linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 * {
