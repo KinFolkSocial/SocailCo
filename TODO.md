@@ -57,6 +57,20 @@ must be replaced with verified content before this site goes live.
   (e.g. "Placeholder Floral Co.", "The Grand Hall (placeholder venue)") — see
   `content/projects.ts`. None of these vendors or venues exist; do not contact them.
 
+## Placeholder content (Phase 6 — services, about, process)
+
+- **Team members** — `content/team.ts` — two of three entries are fully invented
+  (`[Team Member Name]`, role, and bio); only the founder entry mirrors `content/brand.ts`.
+- **About narrative copy** — `app/about/page.tsx` — the founder-story and "What we stand for"
+  paragraphs are placeholder marketing copy written around the placeholder founder name/bio.
+  They deliberately avoid inventing specific biographical facts (no claimed history, prior
+  employer, hometown, etc.) but still need a real pass once the founder's actual story and
+  point of view are available.
+- **`about-hero.svg`, `team-2.svg`, `team-3.svg`** (`public/placeholders/`) — gradient
+  placeholders for the founder portrait and two team portraits.
+- **Press/awards mentions** — `components/about/PressStrip.tsx` — four invented outlet names
+  (e.g. "Placeholder Weddings Quarterly"). No real press coverage exists yet.
+
 ## Fabricated-by-design placeholders (never to be shipped as real)
 
 - Testimonials — obviously fake, e.g. `"Client Name — Event Type, 2025"` — see
