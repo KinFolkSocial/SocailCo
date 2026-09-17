@@ -48,11 +48,21 @@ must be replaced with verified content before this site goes live.
 - **Logo scroller** — `components/sections/LogoScroller.tsx` — six invented venue/press/brand
   names (e.g. "The Grand Hall"), not real partners.
 
+## Placeholder imagery (Phase 5 — work index & case studies)
+
+- **`gallery-a` through `gallery-f`** (`public/placeholders/`) — six shared gradient
+  placeholders reused across all six case-study galleries rather than one unique file per
+  slot. Replace with real per-project photography.
+- Case study **venue names, vendor credits, and client quotes** — all invented
+  (e.g. "Placeholder Floral Co.", "The Grand Hall (placeholder venue)") — see
+  `content/projects.ts`. None of these vendors or venues exist; do not contact them.
+
 ## Fabricated-by-design placeholders (never to be shipped as real)
 
 - Testimonials — obviously fake, e.g. `"Client Name — Event Type, 2025"` — see
   `content/testimonials.ts`.
-- Case study client names, guest counts, and result lines — see `content/projects.ts`.
+- Case study client names, guest counts, result lines, narrative copy, pull quotes, and
+  client quotes — see `content/projects.ts`.
 - "Numbers" / stats band (events produced, guests hosted, cities, years) — see
   `components/sections/StatBand.tsx`.
 - Trust-strip logos (venues, brands, publications) — see `components/sections/LogoScroller.tsx`.

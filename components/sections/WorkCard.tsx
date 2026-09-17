@@ -10,7 +10,16 @@ import { cn } from "@/lib/cn";
  * touch users (who never trigger :hover) aren't the only ones missing it.
  * group-focus-visible: mirrors the hover reveal for keyboard navigation.
  */
-export function WorkCard({ project, className }: { project: Project; className?: string }) {
+export function WorkCard({
+  project,
+  className,
+  fill = false,
+}: {
+  project: Project;
+  className?: string;
+  /** Fill the parent's height instead of forcing a 4:5 aspect ratio — for grids that set height via row-span (e.g. the /work masonry index). */
+  fill?: boolean;
+}) {
   return (
     <Link
       href={`/work/${project.slug}`}
@@ -19,7 +28,7 @@ export function WorkCard({ project, className }: { project: Project; className?:
         className,
       )}
     >
-      <div className="relative aspect-[4/5] w-full overflow-hidden">
+      <div className={cn("relative w-full overflow-hidden", fill ? "h-full" : "aspect-[4/5]")}>
         <Image
           src={project.cover}
           alt={project.coverAlt}
