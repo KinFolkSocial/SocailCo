@@ -36,9 +36,9 @@ export function JournalTeaser() {
               />
             </RevealImage>
             <div>
-              <p className="font-body text-xs uppercase tracking-[0.15em] text-smoke">{formatDate(post.date)}</p>
+              <p className="font-body text-xs uppercase tracking-[0.15em] text-shale">{formatDate(post.date)}</p>
               <h3 className="mt-2 font-display text-display-3">{post.title}</h3>
-              <p className="mt-2 font-body text-body text-smoke">{post.excerpt}</p>
+              <p className="mt-2 font-body text-body text-shale">{post.excerpt}</p>
             </div>
           </Link>
         ))}

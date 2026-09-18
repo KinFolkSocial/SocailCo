@@ -92,7 +92,7 @@ export default function AboutPage() {
         <RevealText as="h2" lines={["What we value"]} className="font-display text-display-2 uppercase" />
         <StaggerGroup className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2">
           {values.map((value) => (
-            <StaggerItem key={value.title} className="border-t border-smoke/30 pt-6">
+            <StaggerItem key={value.title} className="border-t border-shale/30 pt-6">
               <h3 className="font-display text-display-3">{value.title}</h3>
               <p className="mt-3 max-w-[52ch] font-body text-body">{value.body}</p>
             </StaggerItem>

@@ -15,11 +15,11 @@ export function StatBand() {
         {stats.map((stat) => (
           <div key={stat.label}>
             <CountUp value={stat.value} suffix={stat.suffix} className="font-display text-display-2 text-clay" />
-            <p className="mt-2 font-body text-xs uppercase tracking-[0.2em] text-smoke">{stat.label}</p>
+            <p className="mt-2 font-body text-xs uppercase tracking-[0.2em] text-shale">{stat.label}</p>
           </div>
         ))}
       </div>
-      <p className="mt-10 font-body text-xs text-smoke">Placeholder values — see TODO.md.</p>
+      <p className="mt-10 font-body text-xs text-shale">Placeholder values — see TODO.md.</p>
     </section>
   );
 }

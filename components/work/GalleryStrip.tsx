@@ -9,8 +9,15 @@ import type { Project } from "@/content/projects";
  */
 export function GalleryStrip({ images }: { images: Project["gallery"] }) {
   return (
+    // tabIndex + role="region" + aria-label make the horizontally-scrolling
+    // area reachable and scrollable via keyboard (arrow keys). Axe flags a
+    // scrollable-region-focusable violation otherwise — a keyboard-only user
+    // couldn't scroll the strip at all.
     <div
       data-lenis-prevent
+      role="region"
+      aria-label="Case study image gallery"
+      tabIndex={0}
       className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 sm:px-10 lg:px-16"
     >
       {images.map((image, index) => (

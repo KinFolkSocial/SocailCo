@@ -6,7 +6,13 @@
   --color-amber: #e2a03f;
   --color-clay: #a8452e;
   --color-jade: #1f4d3d;
-  --color-smoke: #6b635c;
+  /* smoke = muted text on ink (dark) backgrounds. Chosen to clear WCAG AA
+     (4.5:1) against --color-ink; the pre-audit value (#6B635C) sat at 3.32:1
+     and lit up ~140 axe violations across the site. */
+  --color-smoke: #9c948c;
+  /* shale = muted text on bone (light) backgrounds. The former smoke value,
+     which passes AA (~5.4:1) against --color-bone but not against ink. */
+  --color-shale: #6b635c;
 
   --font-display: var(--font-display-family), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-body-family), ui-sans-serif, system-ui, sans-serif;
