@@ -11,6 +11,7 @@ import { PressStrip } from "@/components/about/PressStrip";
 export const metadata: Metadata = {
   title: "About",
   description: `${brand.name}'s founder story, studio philosophy, and the people behind the work.`,
+  alternates: { canonical: "/about" },
 };
 
 const values = [

@@ -4,6 +4,7 @@ import { JournalIndexGrid } from "@/components/journal/JournalIndexGrid";
 export const metadata: Metadata = {
   title: "Journal",
   description: "Notes from the field — process, vendors, and craft.",
+  alternates: { canonical: "/journal" },
 };
 
 export default function JournalPage() {

@@ -5,6 +5,7 @@ import { InquiryForm } from "@/components/forms/InquiryForm";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Start an inquiry — most replies land within one business day.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

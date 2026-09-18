@@ -4,6 +4,8 @@ import { brand } from "@/content/brand";
 import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { organizationJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const displayFont = Bricolage_Grotesque({
@@ -25,6 +27,19 @@ export const metadata: Metadata = {
     template: `%s — ${brand.name}`,
   },
   description: brand.tagline,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: brand.name,
+    title: `${brand.name} — Event Planning Studio`,
+    description: brand.tagline,
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${brand.name} — Event Planning Studio`,
+    description: brand.tagline,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -34,6 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${displayFont.variable} ${bodyFont.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-ink text-bone">
+        <JsonLd data={organizationJsonLd()} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-amber focus:px-4 focus:py-2 focus:text-ink"

@@ -99,5 +99,17 @@ must be replaced with verified content before this site goes live.
   (`lib/inquiry.ts`) are reasonable guesses, not values the studio has confirmed it wants
   to offer publicly.
 
+## Placeholder content (Phase 8 — SEO)
+
+- **JSON-LD `telephone`** — `lib/seo.ts`'s `organizationJsonLd()` deliberately omits a
+  `telephone` field since `content/brand.ts`'s phone number is still a literal
+  placeholder string; add it once that's resolved.
+- **FAQ answers** — `content/faqs.ts` — eight real policy answers I wrote (booking
+  lead time, travel, etc.), not fabricated stats or claims, but unreviewed by the studio.
+  Confirm they match actual policy before launch.
+- **Domain-dependent SEO** — `sitemap.ts`, `robots.ts`, canonical URLs, and OG image URLs
+  all resolve against `content/brand.ts`'s `domain` field, which is itself unconfirmed
+  (see Brand facts above). Re-verify all of these once the real domain is set.
+
 This section will grow as later build phases add content — each new placeholder gets
 logged here with its file and line as it's introduced.
