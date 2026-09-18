@@ -1,115 +1,182 @@
-# TODO — Placeholders to resolve before launch
+# TODO — Design & content punch list
 
-Every placeholder shipped in this build is listed here with its file and location.
-Nothing false (testimonials, client names, awards, press, stats) is real — all of it
-must be replaced with verified content before this site goes live.
+Every placeholder shipped in this build, grouped so a designer, copywriter,
+and site owner can each work in parallel.
 
-## Brand facts (content/brand.ts)
+Nothing false is presented as real — every placeholder is either an obviously
+bracketed string (`[Founder Name]`), a clearly-fake attribution (`Client Name
+— Wedding, 2025`), or an invented outlet name (`Placeholder Weddings
+Quarterly`). All items marked below need real replacements before launch.
 
-- **Founder name** — `content/brand.ts`, `founder.name` — currently `"[Founder Name]"`.
-- **Founder bio** — `content/brand.ts`, `founder.bio` — currently a placeholder sentence.
-- **Booking email** — `content/brand.ts`, `contact.email` — currently `hello@kinfolksocialco.com` (unverified, not yet connected to an inbox).
-- **Phone number** — `content/brand.ts`, `contact.phone` — currently `"[TODO — phone number]"`.
-- **Domain** — `content/brand.ts`, `domain` — currently `kinfolksocialco.com` (unconfirmed — needs purchase/DNS check).
-- **Social handles** — `content/brand.ts`, `social.*` — currently guessed handles, not verified to exist or be owned by this business.
-- **Tagline** — `content/brand.ts`, `tagline` — drafted copy ("We build gatherings people remember on purpose."), not user-confirmed. Revise freely.
+---
 
-## Booking / inquiry destination
+## 🎨 For the designer
 
-- No form backend is wired yet (Resend / HubSpot / Calendly / plain email). The contact
-  form's server action (`app/contact/actions.ts`) validates, honeypot-checks, and
-  rate-limits a submission, then only `console.log`s it — nothing is actually delivered
-  anywhere real yet. Same gap applies to `components/forms/NewsletterForm.tsx`.
-- **Rate limiting is in-memory only** (`app/contact/actions.ts`) — resets on every server
-  restart and isn't shared across serverless instances. Fine for a single traditional
-  server; a real deployment on Vercel/similar needs a shared store (Upstash Redis or
-  similar) before this is a meaningful protection.
+### Photography — every image is placeholder
 
-## Photography
+All files under `/public/placeholders/` are brand-colored gradient SVGs
+generated programmatically, not real photography. Replace each with a real,
+credited image before launch (see [HANDOFF.md](HANDOFF.md#photography) for
+the sourcing guide and cultural direction).
 
-- All imagery is placeholder-sourced. Real photography must show real Black gatherings
-  and be credited. Suggested sources: [Nappy.co](https://nappy.co), [CreateHER Stock](https://createherstock.com),
-  and Unsplash's Black-creator collections. Every placeholder image's source and credit
-  will be listed here as it's added, file by file.
+- [ ] `hero-1.svg`, `hero-2.svg` — inline in the Hero headline
+- [ ] `founder-portrait.svg` — Intro statement portrait, also used on `/about`
+- [ ] `about-hero.svg` — About page hero portrait
+- [ ] `team-2.svg`, `team-3.svg` — Team grid portraits
+- [ ] `project-1.svg` – `project-6.svg` — Case-study covers
+- [ ] `gallery-a.svg` – `gallery-f.svg` — Six shared gradients reused across
+      all six case-study galleries. Each case study needs its own set of
+      real per-project photography (currently the same six placeholders
+      are recycled).
+- [ ] `service-header-1.svg`, `service-header-2.svg` — Inline in the Services
+      section header
+- [ ] `journal-1.svg`, `journal-2.svg`, `journal-3.svg` — Post covers (also
+      reused as journal-teaser thumbnails on the homepage)
 
-## Placeholder imagery (Phase 3)
+**When adding real photography**, use `next/image` with a static import so
+`placeholder="blur"` generates automatically. Credit every image inline here
+as you add it.
 
-- **Mega menu preview panel** — `components/layout/MegaMenu.tsx` — gradient block standing
-  in for a real image per nav item (Work/Services/About/Journal/Contact previews).
-- **Newsletter form destination** — `components/forms/NewsletterForm.tsx` — validates and
-  confirms client-side only; no email service is wired yet (needs the same booking
-  destination decision as the contact form).
+### Mega menu preview panel
+[`components/layout/MegaMenu.tsx`](components/layout/MegaMenu.tsx) — the
+preview panel that changes on nav-link hover is currently a gradient block.
+Replace with a real hero image per nav item (Work / Services / About /
+Journal / Contact).
 
-## Placeholder imagery (Phase 4 — home page)
+### Brand color palette
+The default palette in [`app/globals.css`](app/globals.css) is the one
+proposed in the brief — ink, bone, amber, clay, jade, smoke, shale. It has
+not been user-confirmed; feel free to retune. Any change to a color
+requires re-verifying WCAG AA contrast — see
+[HANDOFF.md](HANDOFF.md#accessibility-guardrails).
 
-- **All `/public/placeholders/*.svg` files** — abstract brand-colored gradients generated
-  programmatically, not real photography. Every one needs replacing with real, credited
-  images (see Photography above) before launch: `hero-1`/`hero-2` (Hero), `founder-portrait`
-  (Intro statement), `project-1`–`project-6` (Featured work cards), `service-header-1`/
-  `service-header-2` (Services heading), `journal-1`–`journal-3` (Journal teaser).
-- Real photography assets should use `next/image` with a static import so `placeholder="blur"`
-  generates automatically — the flat placeholder SVGs skip this since it adds no value for an
-  instantly-rendered local gradient with zero real network latency.
-- **Logo scroller** — `components/sections/LogoScroller.tsx` — six invented venue/press/brand
-  names (e.g. "The Grand Hall"), not real partners.
+---
 
-## Placeholder imagery (Phase 5 — work index & case studies)
+## ✍️ For copywriting
 
-- **`gallery-a` through `gallery-f`** (`public/placeholders/`) — six shared gradient
-  placeholders reused across all six case-study galleries rather than one unique file per
-  slot. Replace with real per-project photography.
-- Case study **venue names, vendor credits, and client quotes** — all invented
-  (e.g. "Placeholder Floral Co.", "The Grand Hall (placeholder venue)") — see
-  `content/projects.ts`. None of these vendors or venues exist; do not contact them.
+### Brand facts (content/brand.ts)
 
-## Placeholder content (Phase 6 — services, about, process)
+- [ ] **Founder name** — `founder.name` — currently `"[Founder Name]"`
+- [ ] **Founder bio** — `founder.bio` — placeholder sentence
+- [ ] **Tagline** — `tagline` — drafted as "We build gatherings people
+      remember on purpose." Not user-confirmed.
 
-- **Team members** — `content/team.ts` — two of three entries are fully invented
-  (`[Team Member Name]`, role, and bio); only the founder entry mirrors `content/brand.ts`.
-- **About narrative copy** — `app/about/page.tsx` — the founder-story and "What we stand for"
-  paragraphs are placeholder marketing copy written around the placeholder founder name/bio.
-  They deliberately avoid inventing specific biographical facts (no claimed history, prior
-  employer, hometown, etc.) but still need a real pass once the founder's actual story and
-  point of view are available.
-- **`about-hero.svg`, `team-2.svg`, `team-3.svg`** (`public/placeholders/`) — gradient
-  placeholders for the founder portrait and two team portraits.
-- **Press/awards mentions** — `components/about/PressStrip.tsx` — four invented outlet names
-  (e.g. "Placeholder Weddings Quarterly"). No real press coverage exists yet.
+### About page narrative
+[`app/about/page.tsx`](app/about/page.tsx) — the founder-story hero
+paragraph and the "What we stand for" statement are placeholder marketing
+copy written around the placeholder founder name/bio. They deliberately
+avoid inventing biographical facts (no history, employer, or hometown), but
+still need a real pass once the founder's actual story is available.
 
-## Fabricated-by-design placeholders (never to be shipped as real)
+### Team members (content/team.ts)
+- [ ] Two of three entries are fully invented (`[Team Member Name]`, role,
+      bio). Only the founder mirrors `brand.ts`.
 
-- Testimonials — obviously fake, e.g. `"Client Name — Event Type, 2025"` — see
-  `content/testimonials.ts`.
-- Case study client names, guest counts, result lines, narrative copy, pull quotes, and
-  client quotes — see `content/projects.ts`.
-- "Numbers" / stats band (events produced, guests hosted, cities, years) — see
-  `components/sections/StatBand.tsx`.
-- Trust-strip logos (venues, brands, publications) — see `components/sections/LogoScroller.tsx`.
-- Journal posts (`content/journal.ts`, `content/journal/*.mdx`) — three fully-written
-  placeholder posts with invented specifics. The advice in them is genuinely reasonable
-  but is not sourced from real events this studio has run.
-- Services starting-investment figures — see `content/services.ts`.
-- Press/awards strip on `/about`.
+### Case-study copy (content/projects.ts)
+The narrative, pull quote, vendor credits, and client quote for each of the
+six case studies is invented. Replace each once real events land in the
+portfolio.
 
-## Placeholder content (Phase 7 — journal & contact)
+### Testimonials (content/testimonials.ts)
+Four fake attributions (`Client Name — Wedding, 2025`). Replace with real
+client quotes only. Never invent.
 
-- **Journal cover images** reuse the same `journal-1`/`journal-2`/`journal-3` gradients
-  already used by the homepage teaser (see Phase 4 note above) — no per-post photography.
-- The inquiry form's "budget range" and "guest count" option bands
-  (`lib/inquiry.ts`) are reasonable guesses, not values the studio has confirmed it wants
-  to offer publicly.
+### Stats band (components/sections/StatBand.tsx)
+Four placeholder counters: events produced, guests hosted, cities, years.
+Replace with real totals only.
 
-## Placeholder content (Phase 8 — SEO)
+### Trust-strip logos (components/sections/LogoScroller.tsx)
+Six invented venue/press/brand names (`The Grand Hall`, `Southern Table
+Co.`, etc.). No real partnerships exist yet; replace or remove the strip
+before launch.
 
-- **JSON-LD `telephone`** — `lib/seo.ts`'s `organizationJsonLd()` deliberately omits a
-  `telephone` field since `content/brand.ts`'s phone number is still a literal
-  placeholder string; add it once that's resolved.
-- **FAQ answers** — `content/faqs.ts` — eight real policy answers I wrote (booking
-  lead time, travel, etc.), not fabricated stats or claims, but unreviewed by the studio.
-  Confirm they match actual policy before launch.
-- **Domain-dependent SEO** — `sitemap.ts`, `robots.ts`, canonical URLs, and OG image URLs
-  all resolve against `content/brand.ts`'s `domain` field, which is itself unconfirmed
-  (see Brand facts above). Re-verify all of these once the real domain is set.
+### Press strip (components/about/PressStrip.tsx)
+Four invented outlet names. No real press coverage exists yet.
 
-This section will grow as later build phases add content — each new placeholder gets
-logged here with its file and line as it's introduced.
+### Journal posts (content/journal/*.mdx)
+Three fully-written placeholder posts. The advice is reasonable but the
+specifics ("we ran the timeline backward from sunset") are invented, not
+sourced from real events. Rewrite or replace with real journal entries.
+
+### Services starting-investment figures (content/services.ts)
+Five placeholder dollar bands. Confirm with the studio and replace.
+
+### FAQ answers (content/faqs.ts)
+Eight real policy questions I drafted with reasonable defaults, not
+fabricated stats or claims. Have the studio confirm each answer matches
+actual policy before launch.
+
+### Inquiry-form option bands (lib/inquiry.ts)
+The "budget range" and "guest count" pill groups on the contact form are
+reasonable guesses (e.g. Under $10k / $10–25k / $25–50k / $50k+). Confirm
+these bands with the studio.
+
+---
+
+## 🔧 For the site owner / engineer
+
+### Contact form destination
+[`app/contact/actions.ts`](app/contact/actions.ts) — the Server Action
+validates, honeypot-checks, and rate-limits a submission, then only
+`console.log`s it. Nothing is delivered anywhere real yet. Pick one and
+wire it in:
+
+- [ ] Resend (transactional email)
+- [ ] HubSpot / Salesforce (CRM)
+- [ ] Plain SMTP
+- [ ] Calendly / booking tool
+- [ ] Something else
+
+Same gap applies to
+[`components/forms/NewsletterForm.tsx`](components/forms/NewsletterForm.tsx) —
+currently client-side confirmation only.
+
+### Rate limit store
+Current rate limit is in-memory only (`app/contact/actions.ts`). Fine for a
+traditional single-server deploy; on Vercel/serverless this resets per
+request. Switch to a shared store (Upstash Redis or similar) before
+relying on it in production.
+
+### Contact facts (content/brand.ts)
+- [ ] `contact.phone` — currently `"[TODO — phone number]"`
+- [ ] `contact.email` — currently `hello@kinfolksocialco.com`, unverified;
+      confirm inbox exists and connects to the contact-form destination
+      above
+- [ ] `domain` — currently `kinfolksocialco.com`, unconfirmed. Purchase or
+      confirm DNS, then update. Sitemap, canonical URLs, and OG images
+      all resolve against this field.
+- [ ] `social.*` — three guessed handles (`instagram.com/kinfolksocialco`,
+      etc.), not verified.
+
+### SEO
+- [ ] `lib/seo.ts` — `organizationJsonLd()` deliberately omits `telephone`
+      because `brand.contact.phone` is still a placeholder. Add the field
+      once the phone number is real.
+
+### Deployment
+No custom Vercel config needed — the framework preset handles it. Before
+first deploy:
+
+- [ ] Point the domain (see `content/brand.ts`)
+- [ ] Set any env vars introduced when the contact-form destination is
+      wired
+- [ ] Confirm `robots.ts` still disallows `/styleguide`
+
+---
+
+## Reference: original placeholder inventory by phase
+
+Kept for the audit trail — every placeholder above was introduced in one of
+these build phases:
+
+- **Phase 1–2**: design tokens, styleguide route (noindex).
+- **Phase 3**: mega menu preview panel, newsletter form.
+- **Phase 4**: `hero-*`, `founder-portrait`, `project-1`–`6`, `service-header-*`,
+  `journal-1`–`3`, logo scroller names.
+- **Phase 5**: `gallery-a`–`f`, case-study venue/vendor/client-quote strings.
+- **Phase 6**: team members, about narrative, `about-hero.svg`, `team-2/3.svg`,
+  press strip.
+- **Phase 7**: journal posts (`content/journal/*.mdx`), inquiry-form option bands.
+- **Phase 8**: FAQ answers, JSON-LD telephone omission.
+- **Phase 9**: audit fixes only (smoke → smoke + shale palette split, gallery
+  strip keyboard access) — no new placeholders introduced.
