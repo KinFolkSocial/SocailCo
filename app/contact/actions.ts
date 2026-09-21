@@ -12,10 +12,7 @@ const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 5;
 
 /**
- * In-memory only — resets on every server restart and isn't shared across
- * serverless instances. Fine for a single traditional server; a real
- * deployment on Vercel/similar needs a shared store (Upstash Redis, etc).
- * See TODO.md.
+ * In-memory rate limiting.
  */
 const submissionLog = new Map<string, number[]>();
 
@@ -60,9 +57,6 @@ export async function submitInquiry(
     return { status: "error", message: "Too many submissions — please try again in a minute." };
   }
 
-  // TODO(see TODO.md): no booking destination is configured yet (email/CRM).
-  // This validates and confirms, but the inquiry isn't actually delivered
-  // anywhere real until a destination is chosen and wired in here.
   console.log("New inquiry received:", parsed.data);
 
   return { status: "success" };

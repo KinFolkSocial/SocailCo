@@ -227,7 +227,6 @@ export default function StyleguidePage() {
             </div>
           ))}
         </div>
-        <p className="mt-6 font-body text-xs text-smoke">Placeholder values — see TODO.md.</p>
       </Section>
 
       <Section title="Parallax" description="Content drifts at a different rate than scroll, scrubbed via GSAP ScrollTrigger. Scroll this section to see it.">

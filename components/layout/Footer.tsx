@@ -16,7 +16,7 @@ export function Footer() {
         <p className="font-body text-label uppercase text-smoke">{brand.markets.primary} — start a conversation</p>
         <a
           href={`mailto:${brand.contact.email}`}
-          className="mt-4 block break-words font-display text-display-1 lowercase leading-[0.9] text-bone transition-colors hover:text-amber"
+          className="mt-4 block break-words font-display text-display-2 lowercase leading-[0.9] text-bone transition-colors hover:text-amber"
         >
           {brand.contact.email}
         </a>

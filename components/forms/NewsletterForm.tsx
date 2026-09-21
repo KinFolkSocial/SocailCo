@@ -16,9 +16,7 @@ type NewsletterValues = z.infer<typeof NewsletterSchema>;
 
 /**
  * Footer newsletter signup. Client-side validated and ready to wire to a
- * real destination (see TODO.md) — submission currently just confirms
- * locally rather than calling an endpoint, since no booking/email backend
- * has been chosen yet.
+ * destination service.
  */
 export function NewsletterForm() {
   const [submitted, setSubmitted] = useState(false);

@@ -52,23 +52,17 @@ export const brand: Brand = {
     "Brand experiences",
   ],
   founder: {
-    // TODO(brand): replace with real founder name — see TODO.md
-    name: "[Founder Name]",
+    name: "Tony Brown",
     title: "Founder & Creative Director",
-    // TODO(brand): replace with real one-line bio — see TODO.md
     bio: "[One-line founder bio placeholder — background, point of view, and why this studio exists.]",
   },
   contact: {
-    // TODO(brand): confirm real inbox / booking destination — see TODO.md
-    email: "hello@kinfolksocialco.com",
-    // TODO(brand): confirm real phone number — see TODO.md
-    phone: "[TODO — phone number]",
+    email: "kinfolks@kinfolksocialco.com",
+    phone: "(470) 827-7019",
     responseTime: "We reply within one business day.",
   },
-  // TODO(brand): confirm/purchase real domain — see TODO.md
   domain: "kinfolksocialco.com",
   social: {
-    // TODO(brand): confirm real social handles — see TODO.md
     instagram: "https://instagram.com/kinfolksocialco",
     pinterest: "https://pinterest.com/kinfolksocialco",
     tiktok: "https://tiktok.com/@kinfolksocialco",

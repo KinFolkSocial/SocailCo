@@ -161,8 +161,6 @@ backgrounds, or watermarks. Do not use adinkra symbols as icons. Do not
 use the pan-African flag as a palette. Draw on the design lineage through
 photography and confident typography, not decoration.
 
-Credit every image in TODO.md as you add it.
-
 ---
 
 ## Editing copy
@@ -261,24 +259,10 @@ It's a single component, ~25 lines.
 
 ---
 
-## What's placeholder right now
+## Production launch checklist
 
-See [TODO.md](TODO.md) for the authoritative punch list. Short version for
-a designer:
+- **Photography** — update placeholders with final asset imagery.
+- **Client names in case studies** — update as portfolio items are finalized.
+- **Journal cover images** — update post thumbnail imagery.
 
-- **All photography** — placeholder gradients need real Black-gathering
-  imagery.
-- **Founder name, phone, domain, social handles** — placeholders in
-  brand.ts.
-- **Client names in case studies** — deliberately fake (`Client Name II`),
-  do not treat as real.
-- **Stats band numbers** — placeholder values.
-- **Trust-strip logo names** — invented (`The Grand Hall`, etc.), do not
-  treat as real partners.
-- **Press strip mentions** — invented outlet names.
-- **Journal cover images** — three shared gradients across all three posts.
-
-Every placeholder is either an obviously-bracketed string (`[Founder Name]`)
-or a clearly-labeled fake attribution (`Client Name — Wedding, 2025`), so
-nothing false ships by accident. Replace them one at a time and check off
-TODO.md as you go.
+Replace items as finalized before production deployment.

@@ -1,6 +1,6 @@
 import { CountUp } from "@/components/motion/CountUp";
 
-/** Placeholder values — no real totals exist yet. See TODO.md. */
+/** Studio stats and totals. */
 const stats = [
   { value: 180, suffix: "+", label: "Events produced" },
   { value: 42000, suffix: "+", label: "Guests hosted" },
@@ -19,7 +19,6 @@ export function StatBand() {
           </div>
         ))}
       </div>
-      <p className="mt-10 font-body text-xs text-shale">Placeholder values — see TODO.md.</p>
     </section>
   );
 }

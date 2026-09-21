@@ -7,6 +7,7 @@ import { WorkCard } from "@/components/sections/WorkCard";
 import { CategoryFilter } from "@/components/work/CategoryFilter";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { DURATION, EASE_KINFOLK } from "@/lib/easing";
+import { cn } from "@/lib/cn";
 
 /**
  * Full, self-contained class strings per aspect (never split into a "base"
@@ -34,7 +35,7 @@ export function WorkIndexGrid() {
       {filtered.length === 0 ? (
         <p className="mt-16 font-body text-body text-smoke">No projects in this category yet.</p>
       ) : (
-        <div className="mt-12 grid grid-cols-2 gap-4 auto-rows-[240px] sm:grid-cols-3 sm:auto-rows-[220px]">
+        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence>
             {filtered.map((project) => (
               <motion.div
@@ -44,9 +45,9 @@ export function WorkIndexGrid() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: DURATION.reveal, ease: EASE_KINFOLK }}
-                className={aspectClasses[project.aspect]}
+                className="w-full"
               >
-                <WorkCard project={project} fill className="h-full" />
+                <WorkCard project={project} className="w-full" />
               </motion.div>
             ))}
           </AnimatePresence>

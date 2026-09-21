@@ -35,8 +35,8 @@ export const journalPosts: JournalPost[] = [
     excerpt: "Notes on logistics, vendor trust, and knowing when to simplify.",
     date: "2025-08-12",
     category: "process",
-    cover: "/placeholders/journal-1.svg",
-    coverAlt: "Placeholder cover image for the three-city wedding journal post",
+    cover: "/images/journal/journal-1.jpg",
+    coverAlt: "Intimate candlelit luxury African American dinner party celebration in Atlanta",
   },
   {
     slug: "sourcing-vendors-who-get-it",
@@ -44,8 +44,8 @@ export const journalPosts: JournalPost[] = [
     excerpt: "What we look for before we ever book a venue.",
     date: "2025-06-03",
     category: "vendors",
-    cover: "/placeholders/journal-2.svg",
-    coverAlt: "Placeholder cover image for the sourcing vendors journal post",
+    cover: "/images/journal/journal-2.jpg",
+    coverAlt: "African American luxury event florist styling floral arch centerpiece",
   },
   {
     slug: "the-case-for-a-real-rehearsal",
@@ -53,8 +53,8 @@ export const journalPosts: JournalPost[] = [
     excerpt: "Why we never skip it, even for a guest list of twenty.",
     date: "2025-04-21",
     category: "process",
-    cover: "/placeholders/journal-3.svg",
-    coverAlt: "Placeholder cover image for the real rehearsal journal post",
+    cover: "/images/journal/journal-3.jpg",
+    coverAlt: "Chic African American couple raising champagne glasses in an evening outdoor toast",
   },
 ];
 

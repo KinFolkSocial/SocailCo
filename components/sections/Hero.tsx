@@ -34,9 +34,17 @@ export function Hero() {
         className="font-display text-display-1 uppercase leading-[0.85]"
         parts={[
           { type: "text", value: "We build" },
-          { type: "image", src: "/placeholders/hero-1.svg", alt: "Guests dancing at a reception" },
+          {
+            type: "image",
+            src: "/images/hero/kinfolk-social-co-atlanta-event-planner-hero.webp",
+            alt: "Kinfolk Social Co. Atlanta event planner luxury celebration",
+          },
           { type: "text", value: "moments worth" },
-          { type: "image", src: "/placeholders/hero-2.svg", alt: "A tablescape set for a celebration" },
+          {
+            type: "image",
+            src: "/images/hero/kinfolk-social-co-atlanta-event-planner-hero-two.webp",
+            alt: "Kinfolk Social Co. luxury tablescape celebration in Atlanta",
+          },
           { type: "text", value: "remembering" },
         ]}
       />

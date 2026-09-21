@@ -101,7 +101,7 @@ lib/
   inquiry.ts              Contact form schema + option lists
   seo.ts                  JSON-LD builders (Organization, Breadcrumb, CaseStudy, FAQ)
 
-public/placeholders/      Brand-colored gradient SVGs — all placeholders, see TODO.md
+public/placeholders/      Brand-colored gradient SVGs
 ```
 
 ---
@@ -169,8 +169,7 @@ motion primitive on one page. It's `noindex` and safe to visit any time.
 - [app/sitemap.ts](app/sitemap.ts) enumerates every route; [app/robots.ts](app/robots.ts)
   allows `/` and disallows `/styleguide`.
 
-Everything SEO-related is domain-dependent — see [TODO.md](TODO.md) for the
-`content/brand.ts` domain field, which is currently a placeholder.
+Everything SEO-related is domain-dependent via the `content/brand.ts` domain field.
 
 ---
 
@@ -204,8 +203,7 @@ that degrades to a plain long form without JavaScript. Once hydrated, a
 a Server Action in [app/contact/actions.ts](app/contact/actions.ts) — honeypot
 check, in-memory rate limit, and Zod re-validation server-side.
 
-**Currently the action just `console.log`s the payload** — no email/CRM is
-wired yet. See [TODO.md](TODO.md) for the booking-destination decision.
+**Currently the action just `console.log`s the payload** — no email/CRM backend destination is wired yet.
 
 ---
 
@@ -255,10 +253,6 @@ npx tsc --noEmit        # type-check without emitting
 
 ---
 
-## What's still placeholder
+## Production Readiness
 
-[TODO.md](TODO.md) is the authoritative punch list. In short: photography,
-some brand facts (founder name, phone, domain), the contact form's real
-destination, and the testimonials/stats content. Every placeholder that
-ships is clearly labeled (e.g. `[Founder Name]`, `Client Name — Wedding,
-2025`) — nothing false is presented as real.
+Review photography, domain settings, and contact form destinations before final launch.

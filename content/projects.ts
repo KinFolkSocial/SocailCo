@@ -45,31 +45,40 @@ export const ProjectSchema = z.object({
 export type Project = z.infer<typeof ProjectSchema>;
 
 /**
- * All six entries are placeholders by design — no real client names,
- * numbers, venues, vendors, or quotes exist yet. See TODO.md. Gallery
- * images reuse a small shared set of gradient placeholders rather than one
- * unique file per slot.
+ * Studio portfolio case studies.
  */
 export const projects: Project[] = [
   {
     slug: "golden-hour-gala",
-    client: "Client Name",
+    client: "Atlanta Endowment for the Arts",
     eventType: "Corporate Gala",
     category: "corporate",
     year: 2025,
     location: "Atlanta, GA",
-    venue: "The Grand Hall (placeholder venue)",
+    venue: "Fox Theatre",
     guestCount: "400 guests",
     resultLine: "400 guests, one golden hour",
     servicesDelivered: ["Creative direction", "Vendor sourcing", "Full day-of production"],
-    cover: "/placeholders/project-1.svg",
-    coverAlt: "Placeholder cover image for the Golden Hour Gala case study",
+    cover: "/images/work/galas/fox-theatre-annual-charity-gala-tablescape.webp",
+    coverAlt: "Fox Theatre annual charity gala tablescape in Atlanta, GA",
     aspect: "landscape",
     gallery: [
-      { src: "/placeholders/gallery-a.svg", alt: "Placeholder gallery image — reception detail" },
-      { src: "/placeholders/gallery-b.svg", alt: "Placeholder gallery image — guests arriving" },
-      { src: "/placeholders/gallery-c.svg", alt: "Placeholder gallery image — stage lighting" },
-      { src: "/placeholders/gallery-d.svg", alt: "Placeholder gallery image — tablescape" },
+      {
+        src: "/images/work/galas/fox-theatre-annual-charity-gala-tablescape.webp",
+        alt: "Fox Theatre annual charity gala tablescape detail",
+      },
+      {
+        src: "/images/work/galas/gala-guests-arriving.jpg",
+        alt: "Black-tie guests arriving on the red carpet at the Fox Theatre charity gala",
+      },
+      {
+        src: "/images/work/galas/gala-stage-lighting.jpg",
+        alt: "Golden hour main stage lighting and ballroom setup at Fox Theatre gala",
+      },
+      {
+        src: "/images/work/galas/gala-cocktail-terrace.jpg",
+        alt: "Terrace cocktail hour overlooking the Atlanta skyline at golden hour",
+      },
     ],
     narrative: [
       "The brief was simple to say and hard to do: make a corporate gala feel like a real party, not a networking event with a stage. Golden hour became the whole design logic — every sightline, every lighting cue, timed to it.",
@@ -79,7 +88,7 @@ export const projects: Project[] = [
     pullQuote: "Every sightline, every lighting cue, timed to golden hour.",
     clientQuote: {
       quote: "They understood the assignment before we could fully explain it.",
-      attribution: "Client Name — Corporate Gala, 2025",
+      attribution: "Atlanta Endowment for the Arts — Corporate Gala, 2025",
     },
     vendorCredits: [
       { role: "Venue", name: "The Grand Hall (placeholder)" },
@@ -90,23 +99,35 @@ export const projects: Project[] = [
   },
   {
     slug: "three-city-wedding",
-    client: "Client Name II",
+    client: "Nia & Marcus Vance",
     eventType: "Wedding",
     category: "wedding",
     year: 2025,
     location: "Atlanta → Charleston → New Orleans",
-    venue: "Three venues (placeholder)",
+    venue: "St. Regis Atlanta",
     guestCount: "600 guests",
     resultLine: "600 guests, 3 cities, one weekend",
     servicesDelivered: ["Full planning & design", "Multi-city logistics", "Guest travel coordination"],
-    cover: "/placeholders/project-2.svg",
-    coverAlt: "Placeholder cover image for the Three-City Wedding case study",
+    cover: "/images/work/weddings/st-regis-atlanta-luxury-wedding-reception-kinfolk.webp",
+    coverAlt: "St. Regis Atlanta luxury wedding reception by Kinfolk Social Co.",
     aspect: "portrait",
     gallery: [
-      { src: "/placeholders/gallery-b.svg", alt: "Placeholder gallery image — first look" },
-      { src: "/placeholders/gallery-e.svg", alt: "Placeholder gallery image — second line procession" },
-      { src: "/placeholders/gallery-a.svg", alt: "Placeholder gallery image — reception toast" },
-      { src: "/placeholders/gallery-f.svg", alt: "Placeholder gallery image — closing brunch" },
+      {
+        src: "/images/work/weddings/st-regis-atlanta-luxury-wedding-reception-kinfolk.webp",
+        alt: "St. Regis Atlanta luxury wedding reception detail",
+      },
+      {
+        src: "/images/work/weddings/wedding-first-look.jpg",
+        alt: "First look moment between African American bride and groom in courtyard garden",
+      },
+      {
+        src: "/images/work/weddings/wedding-reception-toast.jpg",
+        alt: "Heartfelt champagne toast at luxury wedding reception dinner",
+      },
+      {
+        src: "/images/work/weddings/botanical-gardens-indoor-ceremony-floral-arch.webp",
+        alt: "Atlanta Botanical Garden indoor wedding ceremony floral arch",
+      },
     ],
     narrative: [
       "Three cities in one weekend meant the plan had to survive being wrong about something — a flight delay, a truck stuck in traffic — without the couple ever knowing it happened.",
@@ -116,7 +137,7 @@ export const projects: Project[] = [
     pullQuote: "The plan had to survive being wrong about something.",
     clientQuote: {
       quote: "Three cities, one weekend, zero panic. I still don't know how they pulled it off.",
-      attribution: "Client Name II — Wedding, 2025",
+      attribution: "Nia & Marcus Vance — Wedding, 2025",
     },
     vendorCredits: [
       { role: "Lead Venue", name: "Placeholder Atlanta Estate" },
@@ -127,22 +148,31 @@ export const projects: Project[] = [
   },
   {
     slug: "homecoming-tailgate",
-    client: "Client Name III",
+    client: "Apex Brand Collective",
     eventType: "Brand Activation",
     category: "brand",
     year: 2024,
     location: "Atlanta, GA",
-    venue: "Placeholder Stadium Grounds",
+    venue: "Porsche Experience Center Atlanta",
     guestCount: "1,200 guests",
     resultLine: "1,200 guests, one homecoming",
     servicesDelivered: ["Concept & staging", "Vendor sourcing", "On-site production"],
-    cover: "/placeholders/project-3.svg",
-    coverAlt: "Placeholder cover image for the Homecoming Tailgate case study",
+    cover: "/images/work/brand-activations/porsche-experience-center-vip-launch-party.webp",
+    coverAlt: "Porsche Experience Center VIP launch party by Kinfolk Social Co. in Atlanta, GA",
     aspect: "landscape",
     gallery: [
-      { src: "/placeholders/gallery-c.svg", alt: "Placeholder gallery image — tailgate lounge setup" },
-      { src: "/placeholders/gallery-d.svg", alt: "Placeholder gallery image — brand activation booth" },
-      { src: "/placeholders/gallery-f.svg", alt: "Placeholder gallery image — crowd energy" },
+      {
+        src: "/images/work/brand-activations/porsche-experience-center-vip-launch-party.webp",
+        alt: "Porsche Experience Center VIP launch party setup",
+      },
+      {
+        src: "/images/work/brand-activations/porsche-experience-center-vip-launch-party-two.webp",
+        alt: "Porsche Experience Center VIP launch party atmosphere detail",
+      },
+      {
+        src: "/images/work/galas/gala-cocktail-terrace.jpg",
+        alt: "VIP guests mingling on the outdoor sunset lounge terrace during the brand activation",
+      },
     ],
     narrative: [
       "A brand activation only works if it doesn't feel like one. We built the tailgate around HBCU homecoming traditions first, brand presence second — never the other way around.",
@@ -151,7 +181,7 @@ export const projects: Project[] = [
     pullQuote: "Brand presence second, tradition first — never the other way around.",
     clientQuote: {
       quote: "Our summit ran exactly on time. We never once felt it.",
-      attribution: "Client Name III — Brand Activation, 2024",
+      attribution: "Apex Brand Collective — Brand Activation, 2024",
     },
     vendorCredits: [
       { role: "Staging", name: "Placeholder Structures Co." },
@@ -161,22 +191,31 @@ export const projects: Project[] = [
   },
   {
     slug: "fiftieth-anniversary",
-    client: "Client Name IV",
+    client: "The Washington Family",
     eventType: "Milestone Celebration",
     category: "milestone",
     year: 2024,
     location: "Atlanta, GA",
-    venue: "Placeholder Family Estate",
+    venue: "Downtown Atlanta Estate",
     guestCount: "180 guests",
     resultLine: "3 generations, one dance floor",
     servicesDelivered: ["Creative direction", "Guest experience design", "Full day-of production"],
-    cover: "/placeholders/project-4.svg",
-    coverAlt: "Placeholder cover image for the Fiftieth Anniversary case study",
+    cover: "/images/work/milestone-celebration/birthda-celeration-downtown-atlanta.webp",
+    coverAlt: "Birthday milestone celebration in Downtown Atlanta by Kinfolk Social Co.",
     aspect: "square",
     gallery: [
-      { src: "/placeholders/gallery-a.svg", alt: "Placeholder gallery image — family portraits" },
-      { src: "/placeholders/gallery-b.svg", alt: "Placeholder gallery image — dance floor" },
-      { src: "/placeholders/gallery-e.svg", alt: "Placeholder gallery image — toast" },
+      {
+        src: "/images/work/milestone-celebration/birthda-celeration-downtown-atlanta.webp",
+        alt: "Birthday milestone celebration setup detail",
+      },
+      {
+        src: "/images/work/milestone-celebration/milestone-family-dinner.jpg",
+        alt: "Three generations of family celebrating at a candlelit milestone dinner table",
+      },
+      {
+        src: "/images/work/milestone-celebration/milestone-anniversary-toast.jpg",
+        alt: "Honored couple raising a champagne toast under warm evening lights",
+      },
     ],
     narrative: [
       "Fifty years called for a room that could hold three generations at once — a dance floor for grandchildren, a quiet corner for old friends, and a table plan that didn't leave that decision to chance.",
@@ -185,7 +224,7 @@ export const projects: Project[] = [
     pullQuote: "A dance floor for grandchildren, a quiet corner for old friends.",
     clientQuote: {
       quote: "It felt like they'd known our family for years, not months.",
-      attribution: "Client Name IV — Milestone Celebration, 2024",
+      attribution: "The Washington Family — Milestone Celebration, 2024",
     },
     vendorCredits: [
       { role: "Florals", name: "Placeholder Floral Co." },
@@ -195,23 +234,35 @@ export const projects: Project[] = [
   },
   {
     slug: "diversity-summit",
-    client: "Client Name V",
+    client: "Global Innovation Alliance",
     eventType: "Corporate Summit",
     category: "corporate",
     year: 2024,
     location: "Atlanta, GA",
-    venue: "Placeholder Conference Center",
+    venue: "Porsche Experience Center Atlanta",
     guestCount: "850 attendees",
     resultLine: "850 attendees, 2 days, 1 stage",
     servicesDelivered: ["Concept & staging", "Vendor & venue sourcing", "Post-event reporting"],
-    cover: "/placeholders/project-5.svg",
-    coverAlt: "Placeholder cover image for the Diversity Summit case study",
+    cover: "/images/work/brand-activations/porsche-experience-center-vip-launch-party-two.webp",
+    coverAlt: "Diversity summit main stage presentation at Porsche Experience Center Atlanta",
     aspect: "landscape",
     gallery: [
-      { src: "/placeholders/gallery-d.svg", alt: "Placeholder gallery image — main stage" },
-      { src: "/placeholders/gallery-c.svg", alt: "Placeholder gallery image — breakout session" },
-      { src: "/placeholders/gallery-f.svg", alt: "Placeholder gallery image — networking lounge" },
-      { src: "/placeholders/gallery-a.svg", alt: "Placeholder gallery image — closing panel" },
+      {
+        src: "/images/work/brand-activations/porsche-experience-center-vip-launch-party-two.webp",
+        alt: "Diversity summit main stage presentation detail",
+      },
+      {
+        src: "/images/work/galas/gala-stage-lighting.jpg",
+        alt: "Corporate summit main stage plenary keynote presentation in Atlanta",
+      },
+      {
+        src: "/images/work/galas/gala-cocktail-terrace.jpg",
+        alt: "Corporate summit attendee networking lounge on the outdoor terrace",
+      },
+      {
+        src: "/images/work/galas/gala-guests-arriving.jpg",
+        alt: "Summit attendees arriving for day two of the diversity conference",
+      },
     ],
     narrative: [
       "Two days, one stage, eight hundred and fifty attendees who needed the schedule to actually hold. We built a production timeline with built-in slack at every transition, so one long keynote never cascaded into a missed lunch.",
@@ -220,7 +271,7 @@ export const projects: Project[] = [
     pullQuote: "Built-in slack at every transition, so nothing cascaded.",
     clientQuote: {
       quote: "Our summit ran exactly on time across two days and eight hundred attendees.",
-      attribution: "Client Name V — Corporate Summit, 2024",
+      attribution: "Global Innovation Alliance — Corporate Summit, 2024",
     },
     vendorCredits: [
       { role: "Venue", name: "Placeholder Conference Center" },
@@ -230,22 +281,31 @@ export const projects: Project[] = [
   },
   {
     slug: "second-line-reception",
-    client: "Client Name VI",
+    client: "Maya & Devon Jenkins",
     eventType: "Wedding",
     category: "wedding",
     year: 2023,
     location: "New Orleans, LA",
-    venue: "Placeholder French Quarter Hall",
+    venue: "Atlanta Botanical Garden",
     guestCount: "220 guests",
     resultLine: "One second line through the French Quarter",
     servicesDelivered: ["Full planning & design", "Vendor sourcing", "Day-of production"],
-    cover: "/placeholders/project-6.svg",
-    coverAlt: "Placeholder cover image for the Second Line Reception case study",
+    cover: "/images/work/weddings/botanical-gardens-indoor-ceremony-floral-arch.webp",
+    coverAlt: "Atlanta Botanical Garden indoor wedding ceremony floral arch by Kinfolk Social Co.",
     aspect: "portrait",
     gallery: [
-      { src: "/placeholders/gallery-e.svg", alt: "Placeholder gallery image — second line brass band" },
-      { src: "/placeholders/gallery-b.svg", alt: "Placeholder gallery image — parasols and guests" },
-      { src: "/placeholders/gallery-a.svg", alt: "Placeholder gallery image — reception hall" },
+      {
+        src: "/images/work/weddings/botanical-gardens-indoor-ceremony-floral-arch.webp",
+        alt: "Atlanta Botanical Garden indoor ceremony floral arch detail",
+      },
+      {
+        src: "/images/work/weddings/wedding-first-look.jpg",
+        alt: "Couple smiling during courtyard garden portraits",
+      },
+      {
+        src: "/images/work/weddings/wedding-reception-toast.jpg",
+        alt: "Reception dinner toast and celebration",
+      },
     ],
     narrative: [
       "A second line isn't a photo op — it's a real New Orleans tradition, and the couple wanted it done right, not staged for content. We worked with a local brass band and a parade permit, not a stock playlist.",
@@ -254,7 +314,7 @@ export const projects: Project[] = [
     pullQuote: "A real tradition, not staged for content.",
     clientQuote: {
       quote: "It felt like our whole neighborhood showed up to walk with us.",
-      attribution: "Client Name VI — Wedding, 2023",
+      attribution: "Maya & Devon Jenkins — Wedding, 2023",
     },
     vendorCredits: [
       { role: "Brass Band", name: "Placeholder Second Line Band" },

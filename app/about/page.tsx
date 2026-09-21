@@ -48,8 +48,8 @@ export default function AboutPage() {
         <div className="lg:col-span-4 lg:col-start-9">
           <RevealImage className="aspect-[4/5] w-full rounded-3xl">
             <Image
-              src="/placeholders/about-hero.svg"
-              alt={`Portrait of ${brand.founder.name}, ${brand.founder.title.toLowerCase()}`}
+              src="/images/hero/about-hero.jpg"
+              alt={`Kinfolk Social Co. luxury celebration event held in Atlanta`}
               fill
               sizes="(max-width: 1024px) 80vw, 400px"
               className="object-cover"

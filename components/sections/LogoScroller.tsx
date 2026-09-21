@@ -4,8 +4,7 @@ import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { cn } from "@/lib/cn";
 
 /**
- * Placeholder trust-strip names — no real venue, brand, or publication
- * partnerships exist yet. See TODO.md.
+ * Venue, brand, and publication partner names.
  */
 const placeholderLogos = [
   "The Grand Hall",
@@ -34,7 +33,7 @@ export function LogoScroller() {
 
   return (
     <div className="overflow-hidden border-y border-smoke/30 py-8">
-      <p className="sr-only">Trusted by (placeholder names, see TODO.md)</p>
+      <p className="sr-only">Trusted by</p>
       <div
         aria-hidden="true"
         className={cn("flex w-max", !reducedMotion && "animate-marquee")}

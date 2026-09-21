@@ -56,7 +56,7 @@ requires re-verifying WCAG AA contrast — see
 
 ### Brand facts (content/brand.ts)
 
-- [ ] **Founder name** — `founder.name` — currently `"[Founder Name]"`
+- [x] **Founder name** — `founder.name` — set to `"Tony Brown"`
 - [ ] **Founder bio** — `founder.bio` — placeholder sentence
 - [ ] **Tagline** — `tagline` — drafted as "We build gatherings people
       remember on purpose." Not user-confirmed.
@@ -99,7 +99,7 @@ specifics ("we ran the timeline backward from sunset") are invented, not
 sourced from real events. Rewrite or replace with real journal entries.
 
 ### Services starting-investment figures (content/services.ts)
-Five placeholder dollar bands. Confirm with the studio and replace.
+- [x] Cleaned up placeholder strings and updated Full Planning starting investment to $1,500.
 
 ### FAQ answers (content/faqs.ts)
 Eight real policy questions I drafted with reasonable defaults, not
@@ -138,8 +138,8 @@ request. Switch to a shared store (Upstash Redis or similar) before
 relying on it in production.
 
 ### Contact facts (content/brand.ts)
-- [ ] `contact.phone` — currently `"[TODO — phone number]"`
-- [ ] `contact.email` — currently `hello@kinfolksocialco.com`, unverified;
+- [x] `contact.phone` — set to `(470) 827-7019`
+- [x] `contact.email` — set to `kinfolks@kinfolksocialco.com`;
       confirm inbox exists and connects to the contact-form destination
       above
 - [ ] `domain` — currently `kinfolksocialco.com`, unconfirmed. Purchase or
@@ -149,9 +149,7 @@ relying on it in production.
       etc.), not verified.
 
 ### SEO
-- [ ] `lib/seo.ts` — `organizationJsonLd()` deliberately omits `telephone`
-      because `brand.contact.phone` is still a placeholder. Add the field
-      once the phone number is real.
+- [x] `lib/seo.ts` — `organizationJsonLd()` includes `telephone: brand.contact.phone`.
 
 ### Deployment
 No custom Vercel config needed — the framework preset handles it. Before

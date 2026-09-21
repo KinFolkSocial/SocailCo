@@ -9,11 +9,7 @@ export function absoluteUrl(path: string): string {
 }
 
 /**
- * Sitewide Organization + LocalBusiness node. Telephone is deliberately
- * omitted — content/brand.ts's phone field is still a literal "[TODO]"
- * placeholder, and shipping that into structured data would be worse than
- * leaving the field out. Add it here once TODO.md's phone-number item is
- * resolved.
+ * Sitewide Organization + LocalBusiness node.
  */
 export function organizationJsonLd() {
   return {
@@ -24,6 +20,7 @@ export function organizationJsonLd() {
     url: siteUrl,
     description: brand.tagline,
     email: brand.contact.email,
+    telephone: brand.contact.phone,
     areaServed: brand.markets.primary,
     address: {
       "@type": "PostalAddress",
