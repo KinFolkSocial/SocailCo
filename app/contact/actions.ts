@@ -2,6 +2,7 @@
 
 import { headers } from "next/headers";
 import { InquirySchema } from "@/lib/inquiry";
+import { supabase } from "@/lib/supabase";
 
 export type InquiryActionState =
   | { status: "idle" }
@@ -57,7 +58,26 @@ export async function submitInquiry(
     return { status: "error", message: "Too many submissions — please try again in a minute." };
   }
 
-  console.log("New inquiry received:", parsed.data);
+  const { data, error } = await supabase.from("inquiries").insert({
+    name: parsed.data.name,
+    email: parsed.data.email,
+    phone: parsed.data.phone,
+    event_type: parsed.data.eventType,
+    event_date: parsed.data.eventDate,
+    location: parsed.data.location,
+    guest_count: parsed.data.guestCount,
+    budget_range: parsed.data.budgetRange,
+    details: parsed.data.details,
+  });
+
+  if (error) {
+    console.error("Supabase insert error:", error);
+    return {
+      status: "error",
+      message: "Failed to save inquiry to database. Please try again later.",
+    };
+  }
 
   return { status: "success" };
 }
+
