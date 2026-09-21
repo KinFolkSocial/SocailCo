@@ -256,3 +256,4 @@ npx tsc --noEmit        # type-check without emitting
 ## Production Readiness
 
 Review photography, domain settings, and contact form destinations before final launch.
+"# SocailCo" 
