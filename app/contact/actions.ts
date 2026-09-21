@@ -3,6 +3,7 @@
 import { headers } from "next/headers";
 import { InquirySchema } from "@/lib/inquiry";
 import { supabase } from "@/lib/supabase";
+import { sendInquiryEmailNotification } from "@/lib/email";
 
 export type InquiryActionState =
   | { status: "idle" }
@@ -58,7 +59,7 @@ export async function submitInquiry(
     return { status: "error", message: "Too many submissions — please try again in a minute." };
   }
 
-  const { data, error } = await supabase.from("inquiries").insert({
+  const { error } = await supabase.from("inquiries").insert({
     name: parsed.data.name,
     email: parsed.data.email,
     phone: parsed.data.phone,
@@ -78,6 +79,12 @@ export async function submitInquiry(
     };
   }
 
+  // Trigger Hostinger SMTP email dispatch asynchronously so form submission completes smoothly
+  sendInquiryEmailNotification(parsed.data).catch((err) => {
+    console.error("Background email dispatch error:", err);
+  });
+
   return { status: "success" };
 }
+
 
