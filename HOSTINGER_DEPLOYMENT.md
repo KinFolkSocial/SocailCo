@@ -15,11 +15,48 @@ This guide walks through deploying the Kinfolk Social Co. Next.js website to **H
 
 ---
 
-## 2. Step-by-Step Deployment Instructions
+## 2. Deployment Workflow Options
 
-### Step 1: Log in to Hostinger hPanel
-1. Go to [hpanel.hostinger.com](https://hpanel.hostinger.com) and log in.
-2. Under **Websites**, find your website (e.g., `kinfolksocialco.com`) and click **Manage**.
+You have two simple ways to deploy:
+- **Method A (Direct GitHub Pull via hPanel Git)**: Pull directly from GitHub to Hostinger.
+- **Method B (Standalone Zip Upload)**: Upload `hostinger-deploy.zip` built locally (recommended if server build memory is limited).
+
+---
+
+## 3. Method A: Deploying via GitHub & Hostinger hPanel Git
+
+### Step 1: Push your latest code to GitHub
+Your code is hosted at: `https://github.com/KinFolkSocial/SocailCo.git`
+Whenever you make updates, push them to `main`:
+```bash
+git add .
+git commit -m "Update site"
+git push origin main
+```
+
+### Step 2: Connect GitHub in Hostinger hPanel
+1. In Hostinger hPanel, go to **Advanced** -> **Git**.
+2. Under **Create a New Repository**:
+   - **Repository:** `https://github.com/KinFolkSocial/SocailCo.git`
+   - **Branch:** `main`
+   - **Install directory:** `/public_html` (or your chosen subfolder)
+3. Click **Create**. Hostinger will pull the repository files from GitHub.
+4. Hostinger provides an **Auto-Deployment Webhook**. You can copy this URL, go to your GitHub repo -> **Settings** -> **Webhooks** -> **Add webhook**, paste the URL, and select `application/json`. From then on, every `git push origin main` triggers an automatic pull on Hostinger!
+
+### Step 3: Install & Build on Hostinger
+1. In hPanel, go to **Websites** -> **Manage** -> **Node.js**.
+2. Select Node.js version **20.x** (or 22.x).
+3. Set **Application Root** to the folder where the Git repo was cloned (e.g. `public_html`).
+4. Set **Application Startup File** to `server.js` (or run `npm run build:hostinger` to create `server.js`).
+5. Click **NPM Install** in hPanel to install dependencies.
+6. Add your Environment Variables in the Node.js settings (see Section 5 below).
+7. Start/Restart the application.
+
+---
+
+## 4. Method B: Deploying via `hostinger-deploy.zip` (Pre-Built Bundle)
+
+Because Next.js builds can sometimes exceed the memory limits of shared cloud environments during `npm run build`, building locally and uploading the standalone bundle is the most bulletproof approach:
 
 ### Step 2: Set up the Node.js Application
 1. In the left-hand search bar in hPanel, search for **Node.js** (or locate it under the *Advanced* or *Websites* menu).
