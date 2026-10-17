@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   images: {
     // Only serves the locally generated gradient placeholders in
     // /public/placeholders — never a user- or CMS-supplied SVG.

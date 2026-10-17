@@ -56,7 +56,7 @@ export function StickyStack({ items, className }: { items: StickyStackItem[]; cl
       {items.map((item, index) => (
         <div
           key={item.title}
-          className="sticky-stack-card sticky top-24 mb-6 min-h-[60vh] origin-top rounded-3xl border border-smoke/40 bg-ink p-10"
+          className="sticky-stack-card sticky top-24 mb-6 min-h-[50vh] origin-top rounded-3xl border border-smoke/40 bg-ink p-6 sm:min-h-[60vh] sm:p-10"
           style={{ zIndex: index + 1 }}
         >
           <h3 className="font-display text-display-3">{item.title}</h3>

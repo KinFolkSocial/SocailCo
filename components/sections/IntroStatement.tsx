@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { RevealText } from "@/components/motion/RevealText";
 import { RevealImage } from "@/components/motion/RevealImage";
-import { brand } from "@/content/brand";
 
 const statementLines = [
   "Kinfolk Social Co. exists for the events",
@@ -19,19 +18,16 @@ export function IntroStatement() {
         className="font-display text-display-2 leading-[0.95] lg:col-span-7"
       />
 
-      <div className="lg:col-span-5 lg:col-start-9 lg:-mt-16">
-        <RevealImage className="aspect-[4/5] w-full max-w-sm rounded-3xl">
+      <div className="lg:col-span-4 lg:col-start-9 lg:-mt-16">
+        <RevealImage className="aspect-[4/5] w-full max-w-sm rounded-3xl sm:max-w-md lg:max-w-none">
           <Image
-            src="/placeholders/founder-portrait.svg"
-            alt={`Portrait of ${brand.founder.name}, ${brand.founder.title.toLowerCase()}`}
+            src="/images/intro-celebration.jpg"
+            alt="Joyful guests celebrating with champagne at a Kinfolk Social Co. luxury gathering"
             fill
-            sizes="(max-width: 1024px) 60vw, 320px"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
             className="object-cover"
           />
         </RevealImage>
-        <p className="mt-4 font-body text-sm text-smoke">
-          {brand.founder.name} — {brand.founder.title}
-        </p>
       </div>
     </section>
   );
